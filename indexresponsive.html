@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
+
+
+/* Background image */
+body {
+  background-image: url('./7630A780-DF28-4ACB-9849-312D6FAC54E6.png');/*https://drive.google.com/file/d/1SxJbjkM9-vuggGFGyFuudh0O_HAdNOXt/view?usp=drive_link*/
+    background-size: cover; /* Ensures the image covers the entire viewport */
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center; /* Centers the container horizontally */
+    align-items: center; /* Centers the container vertically */
+}
+h1,p{
+    color: rgb(114, 106, 106);
+}
+
+/* Content container */
+.content {
+  
+    background-size: cover; /* Ensures the image covers the div */
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 80%;
+    color: white; /* Adjust text color for readability */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow for better contrast */
+}
+/* Responsive adjustments */
+@media (max-width: 767px) {
+   
+
+    .content {
+        padding: 10px;
+        max-width: 90%;
+        background-size: contain;
+    }
+}
+body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            background-image: url('./7630A780-DF28-4ACB-9849-312D6FAC54E6.png'); /*https://drive.google.com/file/d/1SxJbjkM9-vuggGFGyFuudh0O_HAdNOXt/view?usp=drive_link*/
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: inherit;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-item {
+            margin: 0 15px;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: #030101;
+            font-family: 'Roboto', sans-serif;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: rgb(1, 1, 1);
+        }
+
+        .nav-link:hover::after {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 2px;
+            background-color: seagreen;
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+        }
+
+        .navbar-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 25px;
+            cursor: pointer;
+        }
+
+        .navbar-toggle div {
+            width: 100%;
+            height: 3px;
+            background-color: rgb(8, 7, 7);
+        }
+
+        @media (max-width: 767px) {
+            .nav {
+                display: none;
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+                background-color: rgba(0, 0, 0, 0.9);
+                position: absolute;
+                top: 50px; /* Adjust based on the navbar height */
+                left: 0;
+            }
+
+            .nav.show {
+                display: flex;
+            }
+
+            .nav-item {
+                margin: 15px 0;
+            }
+
+            .navbar-toggle {
+                display: flex;
+            }
+        }
+  </style>
+</head>
+<body>
+  <div class="content">
+    <nav class="navbar">
+      <div class="navbar-toggle">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          
+      </div>
+      <ul class="nav">
+          <li class="nav-item">
+              <a class="nav-link" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="#">Link 2</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="https://www.instagram.com/p/C7pja06yk73/">Instagram</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="#">Link 4</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="#">Link 5</a>
+          </li>
+      </ul>
+  </nav>
+
+  <script>
+      const toggleButton = document.querySelector('.navbar-toggle');
+      const nav = document.querySelector('.nav');
+
+      toggleButton.addEventListener('click', function() {
+          nav.classList.toggle('show');
+      });
+  </script>
+    <h1></h1>
+    <p></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined" rel="stylesheet">
+        <link rel="stylesheet" href="styles.css">
+        <title>Responsive Navbar with Outlined Icons and Tooltips</title>
+    
+    <style>
+    
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    .video-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.background-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    background-color: inherit;
+    padding: 10px;
+    position: relative;
+    z-index: 1;
+}
+
+.nav-icon {
+    display: none;
+    color: white;
+    cursor: pointer;
+}
+
+.nav-search {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    margin-right: 20px;
+}
+
+.search-icon {
+    color: white;
+    cursor: pointer;
+}
+
+.search-input {
+    display: inline-block;
+    margin-left: 10px;
+    padding: 5px;
+    border: none;
+    border-radius: 4px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    margin: 0 15px;
+    position: relative;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.material-icons-outlined {
+    font-size: 24px;
+}
+
+.nav-links a:hover .tooltip {
+    display: block;
+}
+
+.tooltip {
+    display: none;
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: rgb(198, 161, 161);
+    padding: 5px;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+
+    </style>
+</head>
+
+    <body>
+        <div class="video-container">
+            <video autoplay muted loop class="background-video">
+                <source src="https://videos.pexels.com/video-files/6262801/6262801-hd_1080_1920_25fps.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <nav class="navbar">
+            <div class="nav-icon" id="menu-icon">
+                <span class="material-icons-outlined" title="Menu">menu</span>
+            </div>
+            <div class="nav-search">
+                <span class="material-icons-outlined search-icon" title="Search">search</span>
+                <input type="text" placeholder="Search..." class="search-input">
+            </div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#" title="Home"><span class="material-icons-outlined">home</span></a></li>
+                <li><a href="#" title="Information"><span class="material-icons-outlined">info</span></a></li>
+                <li><a href="#" title="Contact"><span class="material-icons-outlined">contacts</span></a></li>
+                <li><a href="#" title="Help"><span class="material-icons-outlined">help</span></a></li>
+            </ul>
+        </nav>
+        
+    <script src="script.js">
+       document.getElementById('menu-icon').addEventListener('click', function() {
+    var navLinks = document.getElementById('nav-links');
+    navLinks.classList.toggle('active');
+});
+    </script>
+</body>
+</html>

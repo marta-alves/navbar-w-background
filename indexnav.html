@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Navbar with Hamburger Menu</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #f5d0d0;
+            padding: 10px 20px;
+            color: white;
+            position: relative;
+        }
+
+        .navbar-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            height: 80px; /* Adjust the height as needed */
+            width: auto; /* Maintain aspect ratio */
+            margin-right: 20px;
+            mix-blend-mode: multiply;
+            
+        }
+
+        .hamburger-menu {
+            display: none;
+            cursor: pointer;
+        }
+
+        .nav-links {
+            list-style-type: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links li {
+            margin: 0 10px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+
+        .nav-links a:hover {
+            background: #575757;
+        }
+
+        .navbar-right {
+            display: flex;
+            align-items: center;
+        }
+
+        .search-container {
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        .search-icon {
+            cursor: pointer;
+        }
+
+        .search-input {
+            display: none;
+            border: none;
+            padding: 5px;
+            border-radius: 4px;
+            outline: none;
+            width: 0;
+            transition: width 0.3s ease;
+        }
+
+        .search-input.show {
+            display: block;
+            width: 200px;
+        }
+
+        .material-icons-outlined {
+            font-family: 'Material Icons Outlined';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        #bag {
+            color: white;
+            margin-left: 30px;
+        }
+
+        @media (max-width: 762px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background-color: #fc9b9b;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                z-index: 1000;
+            }
+
+            .nav-links.show {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 10px 0;
+            }
+
+            .navbar-left {
+                flex-direction: row;
+                align-items: center;
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .logo {
+                margin-right: 10px;
+                mix-blend-mode: multiply;
+            }
+
+            .hamburger-menu {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-left">
+            <img src="https://i.pinimg.com/736x/f5/08/b8/f508b8e7ce877eab5bfd425b0856a4fc.jpg" alt="Logo" class="logo">
+            <div class="hamburger-menu" id="hamburger-menu">
+                <span class="material-icons-outlined">menu</span>
+            </div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#bracelets">Bracelets</a></li>
+                <li><a href="#earrings">Earrings</a></li>
+                <li><a href="#rings">Rings</a></li>
+                <li><a href="#necklaces">Necklaces</a></li>
+                <li><a href="#charms">Charms</a></li>
+                <li><a href="#sale">Sale</a></li>
+            </ul>
+        </div>
+        <div class="navbar-right">
+            <div class="search-container">
+                <span class="material-icons-outlined search-icon" id="search-icon">search</span>
+                <input type="text" placeholder="Search..." class="search-input" id="search-input">
+            </div>
+            <a href="#cart"><span class="material-icons-outlined" id="bag">shopping_bag</span></a>
+        </div>
+    </nav>
+
+    <script>
+        document.getElementById('search-icon').addEventListener('click', function() {
+            var searchInput = document.getElementById('search-input');
+            if (searchInput.classList.contains('show')) {
+                searchInput.classList.remove('show');
+                console.log('Searching for:', searchInput.value);
+            } else {
+                searchInput.classList.add('show');
+                searchInput.focus();
+            }
+        });
+
+        document.getElementById('search-input').addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                console.log('Searching for:', event.target.value);
+                event.target.classList.remove('show');
+            }
+        });
+
+        document.getElementById('hamburger-menu').addEventListener('click', function() {
+            var navLinks = document.getElementById('nav-links');
+            if (navLinks.classList.contains('show')) {
+                navLinks.classList.remove('show');
+            } else {
+                navLinks.classList.add('show');
+            }
+        });
+    </script>
+</body>
+</html>

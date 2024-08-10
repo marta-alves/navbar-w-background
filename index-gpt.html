@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Navbar with Search</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+          body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color:#b3c3f1;
+    padding: 10px 20px;
+    color: rgb(12, 12, 12);
+}
+
+.navbar-left {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    height: 40px;
+    margin-right: 20px;
+}
+
+.hamburger-menu {
+    display: none;
+    cursor: pointer;
+}
+
+.nav-links {
+    list-style-type: none;
+    display: flex;
+    margin: 0;
+    padding: 10px;
+}
+
+.nav-links li {
+    margin: 0 10px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: rgb(6, 5, 5);
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: background 0.3s;
+}
+
+.nav-links a:hover {
+    background: #FFFBF5;
+}
+
+.navbar-right {
+    display: flex;
+    align-items: center;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.search-icon {
+    cursor: pointer;
+}
+
+.search-input {
+    display: none;
+    position: absolute;
+    right: 30px;
+    border: none;
+    padding: 5px;
+    border-radius: 4px;
+    outline: none;
+    width: 0;
+    transition: width 0.3s, display 0s;
+}
+
+.search-input.show {
+    display: block;
+    width: 200px;
+}
+
+.material-icons {
+    font-size: 24px;
+    margin-left: 20px;
+    cursor: pointer;
+    color: black;
+}
+
+@media (max-width: 762px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #333;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        z-index: 1000;
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+    }
+
+    .navbar-left {
+        flex-direction: row;
+        align-items: center;
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .logo {
+        margin-right: 10px;
+    }
+
+    .hamburger-menu {
+        display: block;
+    }
+}
+
+
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-left">
+            <img src="./logo.png" alt="Logo" class="logo">
+            <div class="hamburger-menu" id="hamburger-menu">
+                <span class="material-icons">menu</span>
+            </div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#bracelets">Bracelets</a></li>
+                <li><a href="#earrings">Earrings</a></li>
+                <li><a href="#rings">Rings</a></li>
+                <li><a href="#necklaces">Necklaces</a></li>
+                <li><a href="#charms">Charms</a></li>
+                <li><a href="#sale">Sale</a></li>
+            </ul>
+        </div>
+        <div class="navbar-right">
+            <div class="search-container">
+                <span class="material-icons search-icon" id="search-icon">search</span>
+                <input type="text" placeholder="Search..." class="search-input" id="search-input">
+            </div>
+            <a href="#cart"><span class="material-icons">shopping_cart</span></a>
+        </div>
+    </nav>
+
+
+
+    <script>
+
+     
+    
+
+
+document.getElementById('search-icon').addEventListener('click', function() {
+    var searchInput = document.getElementById('search-input');
+    if (searchInput.classList.contains('show')) {
+        searchInput.classList.remove('show');
+        // Perform search function here if needed
+        console.log('Searching for:', searchInput.value);
+    } else {
+        searchInput.classList.add('show');
+        searchInput.focus();
+    }
+});
+
+document.getElementById('search-input').addEventListener('keypress', function(event) {
+    if (event.key === 'Enter') {
+        // Perform search function here
+        console.log('Searching for:', event.target.value);
+        event.target.classList.remove('show');
+    }
+});
+
+document.getElementById('hamburger-menu').addEventListener('click', function() {
+    var navLinks = document.getElementById('nav-links');
+    if (navLinks.classList.contains('show')) {
+        navLinks.classList.remove('show');
+    } else {
+        navLinks.classList.add('show');
+    }
+});
+
+</script>
+</body>
+</html>
